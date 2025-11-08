@@ -5,6 +5,9 @@
     <Questions />
 
     <Testimonials />
+    <Pricing />
+    <!-- <About /> -->
+    <Gallery />
     <Video />
     <Contact />
   </div>

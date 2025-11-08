@@ -1,6 +1,6 @@
 <template>
   <section class="py-20 bg-primary-50" id="services">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
           Our Services
