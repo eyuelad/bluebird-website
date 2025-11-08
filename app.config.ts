@@ -7,6 +7,9 @@ export default defineAppConfig({
       slots: {
         base: ["rounded-lg cursor-pointer "],
       },
+      colors: {
+        primary: "bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500",
+      },
       variants: {
         size: {
           xl: {

@@ -1,9 +1,9 @@
 <template>
   <div class="text-slate-900">
     <Hero />
-    <Services />
-    <About />
-    <Gallery />
+
+    <Questions />
+
     <Testimonials />
     <Video />
     <Contact />
