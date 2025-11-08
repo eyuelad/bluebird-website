@@ -4,7 +4,7 @@
       <div class="flex justify-between h-20 items-center">
         <Logo />
 
-        <nav class="hidden md:flex space-x-8">
+        <nav class="hidden md:flex items-center gap-6">
           <NuxtLink
             v-for="link in navLinks"
             :key="link.name"
@@ -12,6 +12,15 @@
             class="hover:text-primary-500"
             >{{ link.name }}</NuxtLink
           >
+
+          <UButton
+            icon="lucide:phone"
+            href="tel:+12063132874"
+            color="primary"
+            class="bg-primary-600 hover:bg-primary-700 text-white"
+          >
+            +1 (206) 313-2874
+          </UButton>
         </nav>
 
         <button class="md:hidden" @click="isMenuOpen = !isMenuOpen">
@@ -34,6 +43,7 @@
       </nav>
     </div>
   </header>
+  <div class="h-20"></div>
 </template>
 
 <script setup lang="ts">
