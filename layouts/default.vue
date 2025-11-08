@@ -1,8 +1,13 @@
 <template>
   <div
-    class="relative page flex flex-col min-h-screen bg-gray-50 text-gray-900"
+    class="relative page flex flex-col min-h-screen bg-slate-50 text-slate-900"
   >
-    <slot class="grow" />
+    <LHeader />
+    <main>
+      <slot class="grow" />
+    </main>
+
+    <LFooter />
   </div>
 </template>
 

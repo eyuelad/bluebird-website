@@ -1,11 +1,21 @@
 export default defineAppConfig({
   ui: {
     colors: {
-      // primary: "amber",
+      primary: "sky",
     },
     button: {
       slots: {
-        base: ["cursor-pointer"],
+        base: ["rounded-lg cursor-pointer "],
+      },
+      variants: {
+        size: {
+          xl: {
+            base: "px-8 py-4 text-base gap-2",
+            leadingIcon: "size-6",
+            leadingAvatarSize: "xs",
+            trailingIcon: "size-6",
+          },
+        },
       },
     },
     card: {
