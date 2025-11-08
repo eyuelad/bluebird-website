@@ -1,3 +1,4 @@
 <template>
   <Services />
+  <Contact />
 </template>
