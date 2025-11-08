@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --font-*: initial;
+  --font-sans: Roboto, sans-serif;
+  --font-title: Roboto, sans-serif;
+  --font-body: Roboto, sans-serif;
+
+  --ui-primary: black;
+
+  --breakpoint-xs: 400px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --animate-slow-zoom: zoom 10s linear infinite alternate;
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee2: marquee2 25s linear infinite;
+  --animate-object-ltr: object-ltr 0.4s ease;
+  --animate-object-rtl: object-rtl 0.4s ease;
+
+  @keyframes zoom {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes marquee2 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes object-ltr {
+    0% {
+      object-position: center;
+    }
+    100% {
+      object-position: 200px;
+    }
+  }
+  @keyframes object-rtl {
+    0% {
+      object-position: 200px;
+    }
+    100% {
+      object-position: center;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= theme(--breakpoint-xs)) {
+    padding-inline: 1.25rem;
+  }
+  @media (width >= theme(--breakpoint-sm)) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= theme(--breakpoint-md)) {
+    padding-inline: 1.25rem;
+  }
+  @media (width >= theme(--breakpoint-lg)) {
+    padding-inline: 0;
+  }
+  @media (width >= theme(--breakpoint-xl)) {
+    padding-inline: 0;
+  }
+  @media (width >= theme(--breakpoint-2xl)) {
+    padding-inline: 0;
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  .container {
+    max-width: none;
+  }
+}
+@media (min-width: 600px) and (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    max-width: 840px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/*  */
+.animation-paused {
+  animation-play-state: paused;
+}
+
+.animation-running {
+  animation-play-state: running;
+}
