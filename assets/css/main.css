@@ -155,3 +155,14 @@ body {
 .animation-running {
   animation-play-state: running;
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  height: 0; /* hide horizontal scrollbar */
+}
