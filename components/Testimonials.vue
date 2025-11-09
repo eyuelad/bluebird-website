@@ -1,5 +1,5 @@
 <template>
-  <section class="testimonials py-20 bg-white">
+  <section class="testimonials py-20 pb-32 bg-white">
     <MediaMarquee class="mb-6" />
 
     <div class="container px-4 sm:px-6 lg:px-8">
@@ -9,46 +9,48 @@
         Testimonials
       </h2>
 
-      <div
-        ref="carouselRef"
-        class="snap-x overflow-x-auto no-scrollbar flex flex-nowrap gap-4 pb-5 mb-12 lg:mb-16"
+      <UCarousel
+        :items="testimonials"
+        dots
+        loop
+        wheel-gestures
+        v-slot="{ item }"
+        :ui="{ item: 'basis-4/5 md:basis-3/5 xl:basis-1/3' }"
       >
         <div
-          v-for="(t, i) in doubledTestimonials"
-          :key="`${t.id}-${i}`"
-          class="snap-center min-w-4/5 sm:min-w-3/5 xl:min-w-1/3 p-6 rounded-xl border border-gray-300 cursor-pointer bg-white hover:border-gray-900 hover:bg-sky-50 group transition-all duration-300"
-          @click="select(t)"
+          class="p-6 rounded-xl border border-gray-300 cursor-pointer bg-white hover:border-gray-900 hover:bg-sky-50 group transition-all duration-300"
+          @click="select(item)"
         >
           <div class="flex items-center mb-4">
             <UAvatar
-              :src="t.image"
-              :alt="t.name"
+              :src="item.image"
+              :alt="item.name"
               class="w-16 h-16 rounded-full object-cover mr-4 bg-sky-100 group-hover:bg-sky-200 duration-300"
             />
             <div>
               <h3 class="text-lg sm:text-xl font-medium text-gray-900">
-                {{ t.name }}
+                {{ item.name }}
               </h3>
-              <p class="text-gray-600">{{ t.role }}</p>
+              <p class="text-gray-600">{{ item.role }}</p>
             </div>
           </div>
-          <p
-            class="text-gray-700 italic max-xs:text-sm line-clamp-4"
-            v-html="t.message"
-          ></p>
+          <p class="text-gray-700 italic max-xs:text-sm line-clamp-5">
+            {{ item.message.replace(/<[^>]*>/g, "") }}
+          </p>
         </div>
-      </div>
+      </UCarousel>
 
       <div
         v-if="selected"
-        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4 sm:px-6 lg:px-8"
         @click.self="selected = null"
       >
-        <div class="relative bg-sky-50 p-6 rounded-lg max-w-2xl w-full">
+        <div class="relative bg-gray-50 p-6 md:p-8 rounded-lg max-w-2xl w-full">
           <UButton
             class="absolute top-6 right-6 z-50"
             icon="lucide:x"
             variant="ghost"
+            size="xl"
             color="neutral"
             @click="selected = null"
             aria-label="Close"
@@ -58,7 +60,7 @@
             <UAvatar
               :src="selected.image"
               :alt="selected.name"
-              class="w-16 h-16 rounded-full object-cover mr-4 bg-sky-200"
+              class="w-16 h-16 rounded-full object-cover mr-4 bg-sky-100"
             />
             <div>
               <h3 class="text-xl font-medium text-gray-900">
@@ -67,10 +69,10 @@
               <p class="text-gray-600">{{ selected.role }}</p>
             </div>
           </div>
-          <div class="overflow-y-auto max-h-[60vh]">
+          <div class="overflow-y-auto max-h-[50vh]">
             <p
-              class="text-gray-700 max-xs:text-sm"
-              v-html="selected.message"
+              class="italic text-gray-700 max-xs:text-sm"
+              v-html="selected.message + selected.message"
             ></p>
           </div>
         </div>
@@ -101,8 +103,8 @@ Elsa has a talent/skill to hire people who have the same outlook about their wor
     name: "S.L",
     role: "Caring daughter",
     message: `
-Review from a Caring daughter;
-I feel very fortunate to have found Bluebird Millcreek.
+Review from a Caring daughter;<br /><br />
+I feel very fortunate to have found Bluebird Millcreek.<br /><br />
 Elsa and her well trained care givers have been so wonderful to my mother with their compassionate and caring personalities.<br /><br />
 Elsa is a LPN, so it's very reassuring to know she is keeping a close eye on each residents needs, both health wise and emotionally. Elsa communicates extremely well with family and care givers. She also readily contacts and receives messages from your doctor, pharmacist and other professionals like physical or occupational therapist, when health issues arise. I love how prompt she is to follow through with their instructions and suggestions.<br /><br />
 Elsa cares about all of the residents as individuals and tries to find activities that each one enjoys.The home has a cozy, quiet atmosphere and is very clean and organized. Having my mother at Bluebird is a blessing that I'm thankful for every day.`,
@@ -125,12 +127,6 @@ The Bluebird Mill Creek Adult Family Home (AFH) was a true blessing for my mothe
   },
 ]);
 
-// render the list twice so Vue attaches listeners to both copies
-const doubledTestimonials = computed(() => [
-  ...testimonials.value,
-  ...testimonials.value,
-]);
-
 const selected = ref<Testimonial | null>(null);
 function select(t: Testimonial) {
   selected.value = t;
@@ -139,88 +135,8 @@ function select(t: Testimonial) {
 watch(selected, (newVal) => {
   if (newVal) {
     document.body.classList.add("overflow-hidden");
-    pauseAutoScroll();
   } else {
     document.body.classList.remove("overflow-hidden");
-    resumeAutoScroll();
-  }
-});
-
-// Carousel auto-scroll logic
-const carouselRef = ref<HTMLElement | null>(null);
-let autoScrollTimer: number | null = null;
-let originalWidth = 0;
-let onScrollHandler: ((this: HTMLElement, ev: Event) => any) | null = null;
-
-function startAutoScroll() {
-  const el = carouselRef.value;
-  if (!el) return;
-
-  // avoid starting multiple intervals
-  if (autoScrollTimer) return;
-
-  // calculate original width (half of scrollWidth). We render the items twice
-  // in the template (doubledTestimonials), so half the scrollWidth is the
-  // logical original width to wrap around.
-  const children = Array.from(el.children);
-  if (children.length === 0) return;
-
-  originalWidth = el.scrollWidth / 2;
-
-  // compute step as distance between first two items (includes gap)
-  const first = el.children[0] as HTMLElement;
-  const second = el.children[1] as HTMLElement;
-  const step = second
-    ? second.offsetLeft - first.offsetLeft
-    : first.offsetWidth;
-
-  // Add hover listeners and scroll handler only once
-  if (el.dataset["autoscrollInit"] !== "true") {
-    el.addEventListener("mouseenter", pauseAutoScroll);
-    el.addEventListener("mouseleave", resumeAutoScroll);
-
-    onScrollHandler = () => {
-      if (!el) return;
-      if (el.scrollLeft >= originalWidth) {
-        // subtract originalWidth to loop seamlessly
-        el.scrollLeft = el.scrollLeft - originalWidth;
-      }
-    };
-
-    el.addEventListener("scroll", onScrollHandler);
-    el.dataset["autoscrollInit"] = "true";
-  }
-
-  // start interval
-  autoScrollTimer = window.setInterval(() => {
-    // smooth scroll by one item
-    el.scrollBy({ left: step, behavior: "smooth" });
-  }, 2000);
-}
-
-function pauseAutoScroll() {
-  if (autoScrollTimer) {
-    clearInterval(autoScrollTimer);
-    autoScrollTimer = null;
-  }
-}
-
-function resumeAutoScroll() {
-  if (!autoScrollTimer && !selected.value) startAutoScroll();
-}
-
-onMounted(async () => {
-  await nextTick();
-  startAutoScroll();
-});
-
-onUnmounted(() => {
-  pauseAutoScroll();
-  const el = carouselRef.value;
-  if (el) {
-    el.removeEventListener("mouseenter", pauseAutoScroll);
-    el.removeEventListener("mouseleave", resumeAutoScroll);
-    if (onScrollHandler) el.removeEventListener("scroll", onScrollHandler);
   }
 });
 </script>
