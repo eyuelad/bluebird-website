@@ -25,23 +25,55 @@
 
     <div
       v-if="isOpen"
-      class="fixed inset-0 bg-black bg-opacity-85 flex items-center justify-center z-50"
+      class="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
       @click.self="closeModal"
     >
-      <div
-        class="relative rounded-lg w-full max-w-4xl p-10 sm:flex sm:flex-col items-center justify-center"
-      >
-        <button
-          class="absolute rounded-md bg-black bg-opacity-50 w-7 h-7 flex items-center justify-center top-6 right-6 text-white cursor-pointer"
-          @click="closeModal"
+      <div class="relative rounded-lg w-full max-w-4xl p-10">
+        <h3
+          class="font-display text-4xl font-bold capitalize text-center text-gray-50 mb-4"
         >
-          <UIcon name="lucide:x" />
-        </button>
-        <div class="max-w-2xl">
-          <img
-            :src="currentImage"
-            class="rounded-md object-contain max-h-[70vh] mx-auto"
+          {{ currentItem.title }}
+        </h3>
+
+        <UButton
+          class="absolute top-0 right-0 z-50 text-white hover:text-gray-100"
+          icon="lucide:x"
+          variant="link"
+          size="lg"
+          color="neutral"
+          @click="closeModal()"
+          aria-label="Close"
+        />
+
+        <UCarousel
+          ref="carousel"
+          class="w-full mx-auto"
+          :items="currentItem.images"
+          arrows
+          loop
+          :prev="{ onClick: onClickPrev }"
+          :next="{ onClick: onClickNext }"
+          v-slot="{ item }"
+        >
+          <NuxtImg
+            :src="item"
+            class="w-full aspect-[4/3] rounded-lg bg-gray-700"
           />
+        </UCarousel>
+
+        <div class="flex gap-3 justify-center pt-4 sm:pt-6 mx-auto">
+          <div
+            v-for="(image, index) in currentItem.images"
+            :key="index"
+            class="size-12 md:size-16 opacity-50 hover:opacity-100 transition-opacity"
+            :class="{ 'opacity-100': activeIndex === index }"
+            @click="select(index)"
+          >
+            <NuxtImg
+              :src="image"
+              class="w-12 h-12 md:w-16 md:h-16 rounded-sm bg-gray-700"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -110,7 +142,7 @@ const items = ref([
   },
   {
     title: "Bathroom",
-    cover: "/images/home/45.webp",
+    cover: "/images/home/17.webp",
     images: [
       "/images/home/17.webp",
       "/images/home/18.webp",
@@ -160,16 +192,35 @@ const items = ref([
 ]);
 
 const isOpen = ref(false);
-const currentImage = ref("");
+const currentItem = ref(items.value[0]);
 
 function openModal(idx: number) {
-  currentImage.value = items.value[idx].cover;
+  currentItem.value = items.value[idx];
   isOpen.value = true;
   document.body.classList.add("overflow-hidden");
 }
 function closeModal() {
   isOpen.value = false;
-  currentImage.value = "";
+  currentItem.value = items.value[0];
   document.body.classList.remove("overflow-hidden");
+}
+
+const carousel = useTemplateRef("carousel");
+const activeIndex = ref(0);
+
+function onClickPrev() {
+  activeIndex.value--;
+}
+function onClickNext() {
+  activeIndex.value++;
+}
+function onSelect(index: number) {
+  activeIndex.value = index;
+}
+
+function select(index: number) {
+  activeIndex.value = index;
+
+  carousel.value?.emblaApi?.scrollTo(index);
 }
 </script>
