@@ -3,9 +3,9 @@
 
 @theme {
   --font-*: initial;
-  --font-sans: Roboto, sans-serif;
-  --font-title: Roboto, sans-serif;
-  --font-body: Roboto, sans-serif;
+  --font-sans: "Roboto", sans-serif;
+  --font-serif: "Roboto Serif", serif;
+  --font-display: "Roboto Serif", sans-serif;
 
   --color-primary: var(--color-sky-600);
 
@@ -111,6 +111,14 @@ html {
 
 body {
   overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-sans);
+}
+.font-display {
+  font-family: var(--font-display);
+  font-weight: normal;
 }
 
 @media (min-width: 400px) and (max-width: 600px) {

@@ -59,6 +59,7 @@ export default defineNuxtConfig({
       "@nuxtjs/google-fonts",
       {
         families: {
+          "Roboto+Serif": [400, 500, 600],
           Roboto: [400, 500, 600, 700],
         },
       },
