@@ -39,46 +39,46 @@
           </p>
         </div>
       </UCarousel>
-
-      <div
-        v-if="selected"
-        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4 sm:px-6 lg:px-8"
-        @click.self="selected = null"
-      >
-        <div class="relative bg-gray-50 p-6 md:p-8 rounded-lg max-w-2xl w-full">
-          <UButton
-            class="absolute top-6 right-6 z-50"
-            icon="lucide:x"
-            variant="ghost"
-            size="xl"
-            color="neutral"
-            @click="selected = null"
-            aria-label="Close"
-          />
-
-          <div class="flex items-center mb-4">
-            <UAvatar
-              :src="selected.image"
-              :alt="selected.name"
-              class="w-16 h-16 rounded-full object-cover mr-4 bg-sky-100"
-            />
-            <div>
-              <h3 class="text-xl font-medium text-gray-900">
-                {{ selected.name }}
-              </h3>
-              <p class="text-gray-600">{{ selected.role }}</p>
-            </div>
-          </div>
-          <div class="overflow-y-auto max-h-[50vh]">
-            <p
-              class="italic text-gray-700 max-xs:text-sm"
-              v-html="selected.message + selected.message"
-            ></p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
+
+  <div
+    v-if="selected"
+    class="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4 sm:px-6 lg:px-8"
+    @click.self="selected = null"
+  >
+    <div class="relative bg-gray-50 p-6 md:p-8 rounded-lg max-w-2xl w-full">
+      <UButton
+        class="absolute top-6 right-6 z-50"
+        icon="lucide:x"
+        variant="ghost"
+        size="xl"
+        color="neutral"
+        @click="selected = null"
+        aria-label="Close"
+      />
+
+      <div class="flex items-center mb-4">
+        <UAvatar
+          :src="selected.image"
+          :alt="selected.name"
+          class="w-16 h-16 rounded-full object-cover mr-4 bg-sky-100"
+        />
+        <div>
+          <h3 class="text-xl font-medium text-gray-900">
+            {{ selected.name }}
+          </h3>
+          <p class="text-gray-600">{{ selected.role }}</p>
+        </div>
+      </div>
+      <div class="overflow-y-auto max-h-[50vh]">
+        <p
+          class="italic text-gray-700 max-xs:text-sm"
+          v-html="selected.message"
+        ></p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
