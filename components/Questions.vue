@@ -48,14 +48,12 @@
         <div class="relative w-full h-full bg-gray-50">
           <div class="h-full flex flex-col lg:flex-row items-stretch">
             <div
-              class="lg:w-5/12 h-1/2 lg:h-full lg:col-span-5 flex items-center"
+              class="lg:w-5/12 min-h-1/2 lg:h-full lg:col-span-5 flex items-center"
             >
               <NuxtImg
-                src="/images/family/11.webp"
+                :src="images[currentIndex]"
                 alt="Elderly Care Home"
                 class="object-cover h-full w-full bg-gray-300"
-                width="100%"
-                height="100%"
               />
             </div>
             <div
@@ -185,6 +183,17 @@ const props = defineProps<{ questions?: string[] }>();
 const emit = defineEmits<{
   (e: "schedule"): void;
 }>();
+
+const images = ref<string[]>([
+  "/images/family/1.webp",
+  "/images/family/4.webp",
+  "/images/family/2.webp",
+  "/images/family/3.webp",
+  "/images/family/6.webp",
+  "/images/family/7.webp",
+  "/images/family/8.webp",
+  "/images/family/11.webp",
+]);
 
 const defaultQuestions =
   props.questions && props.questions.length
