@@ -59,57 +59,8 @@
           </div>
         </div>
 
-        <form class="space-y-6">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2"
-              >Name</label
-            >
-            <input
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-              placeholder="Your name"
-            />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2"
-              >Email</label
-            >
-            <input
-              type="email"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-              placeholder="your@email.com"
-            />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2"
-              >Phone</label
-            >
-            <input
-              type="tel"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-              placeholder="(xxx) xxx-xxxx"
-            />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2"
-              >Message</label
-            >
-            <textarea
-              rows="4"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-              placeholder="How can we help you?"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="w-full bg-primary-600 text-white py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors font-semibold"
-          >
-            Send Message
-          </button>
-        </form>
+        <ContactForm />
       </div>
     </div>
   </section>
 </template>
-
-<script setup lang="ts"></script>

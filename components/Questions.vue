@@ -125,15 +125,22 @@
                   <div v-else>
                     <div class="py-12">
                       <template v-if="hasYes">
-                        <p class="text-lg text-gray-700 mb-6">
-                          Under the leadership of Nurse Elsa Amanuel, for the
-                          last 10 years, the houses of Bluebird Elderly Care has
-                          been a home away from for many residents where life is
-                          enjoyed with dignity as if the above limitations don't
-                          exist?
-                        </p>
+                        <h3
+                          class="text-xl lg:text-2xl font-display font-semibold text-gray-900 mb-6"
+                        >
+                          Our care home could be a good fit for your loved one.
+                        </h3>
+
+                        <ContactForm mini :message="contactMessage" />
+
+                        <div class="flex gap-4 items-center my-6">
+                          <hr class="flex-1 border-gray-300" />
+                          <span class="text-gray-500">OR</span>
+                          <hr class="flex-1 border-gray-300" />
+                        </div>
+
                         <div class="flex justify-center gap-4">
-                          <UButton
+                          <!-- <UButton
                             icon="lucide:calendar"
                             color="primary"
                             variant="solid"
@@ -141,12 +148,13 @@
                             class=""
                             @click="onSchedule"
                             >Schedule a Tour</UButton
-                          >
+                          > -->
                           <UButton
-                            icon="lucide:calendar"
+                            icon="lucide:phone"
                             color="primary"
-                            variant="outline"
+                            variant="solid"
                             size="xl"
+                            block
                             href="tel:+12063132874"
                           >
                             Call +1 (206) 313-2874
@@ -154,7 +162,9 @@
                         </div>
                       </template>
                       <template v-else>
-                        <p class="text-lg text-gray-700">You're good.</p>
+                        <p class="text-lg text-gray-700">
+                          We might not be the best fit for you.
+                        </p>
                       </template>
                     </div>
                   </div>
@@ -262,6 +272,10 @@ function onKey(e: KeyboardEvent) {
 
 onMounted(() => window.addEventListener("keydown", onKey));
 onUnmounted(() => window.removeEventListener("keydown", onKey));
+
+const contactMessage = computed(() => {
+  return `I have completed the questionnaire and would like to learn more about your care home.`;
+});
 </script>
 
 <style scoped>
