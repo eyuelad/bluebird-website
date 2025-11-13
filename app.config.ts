@@ -7,9 +7,6 @@ export default defineAppConfig({
       slots: {
         base: ["rounded-lg cursor-pointer "],
       },
-      colors: {
-        primary: "bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500",
-      },
       variants: {
         size: {
           xl: {
@@ -20,6 +17,14 @@ export default defineAppConfig({
           },
         },
       },
+      compoundVariants: [
+        {
+          color: "primary",
+          variant: "solid",
+          class:
+            "bg-sky-600 dark:bg-sky-500 text-white hover:bg-sky-700 dark:hover:bg-sky-600 focus:ring-sky-500",
+        },
+      ],
     },
     card: {
       slots: {

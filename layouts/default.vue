@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen overflow-hidden relative page flex flex-col min-h-screen bg-gray-50 text-gray-900"
+    class="h-screen overflow-hidden relative page flex flex-col min-h-screen bg-gray-900 text-gray-100 dark"
   >
     <LHeader />
 

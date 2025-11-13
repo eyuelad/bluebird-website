@@ -1,20 +1,19 @@
 <template>
-  <div class="py-20 bg-white">
+  <div class="py-32 lg:py-20 group overflow-x-clip">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-5">
           <h2
-            class="font-display text-4xl font-bold capitalize text-gray-900 mb-4"
+            class="font-display text-4xl font-bold capitalize mb-8 md:max-lg:max-w-xl max-lg:text-center"
           >
             Is now the right time to consider an elderly home?
           </h2>
 
           <div>
             <UButton
-              icon="lucide:arrow-right"
+              trailing-icon="lucide:move-right"
               color="primary"
               size="xl"
-              class="bg-primary-600 hover:bg-primary-700 text-white"
               @click="openModal"
             >
               Find Out Here
@@ -45,7 +44,7 @@
 
         <div class="absolute top-0 w-full h-full bg-gray-950/90"></div> -->
 
-        <div class="relative w-full h-full bg-gray-50">
+        <div class="relative w-full h-full bg-gray-900">
           <div class="h-full flex flex-col lg:flex-row items-stretch">
             <div
               class="lg:w-5/12 min-h-1/2 lg:h-full lg:col-span-5 flex items-center"
@@ -53,7 +52,7 @@
               <NuxtImg
                 :src="images[currentIndex]"
                 alt="Elderly Care Home"
-                class="object-cover h-full w-full bg-gray-300"
+                class="object-cover h-full w-full bg-gray-600"
               />
             </div>
             <div
@@ -63,7 +62,7 @@
                 <UButton
                   class=""
                   icon="lucide:chevron-left"
-                  variant="ghost"
+                  variant="link"
                   size="xl"
                   color="neutral"
                   aria-label="Previous"
@@ -74,7 +73,7 @@
                 <UButton
                   class=""
                   icon="lucide:chevron-right"
-                  variant="ghost"
+                  variant="link"
                   size="xl"
                   color="neutral"
                   aria-label="Next"
@@ -86,7 +85,7 @@
               <UButton
                 class="absolute top-6 right-6 z-50"
                 icon="lucide:x"
-                variant="ghost"
+                variant="link"
                 size="xl"
                 color="neutral"
                 @click="closeModal"
@@ -98,12 +97,10 @@
                   class="max-w-2xl mx-auto"
                 >
                   <div v-if="!finished">
-                    <p class="text-sm text-gray-500 mb-4">
+                    <p class="text-sm text-gray-400 mb-4">
                       Question {{ currentIndex + 1 }} of {{ total }}
                     </p>
-                    <h3
-                      class="text-2xl lg:text-3xl font-semibold text-gray-900 mb-8"
-                    >
+                    <h3 class="text-2xl lg:text-3xl font-semibold mb-8">
                       {{ currentQuestion }}
                     </h3>
 
@@ -114,6 +111,8 @@
                       <UButton
                         @click="answer(false)"
                         variant="outline"
+                        color="primary"
+                        class="text-white"
                         size="xl"
                         >No</UButton
                       >
@@ -124,7 +123,7 @@
                     <div class="py-12">
                       <template v-if="hasYes">
                         <h3
-                          class="text-xl lg:text-2xl font-display font-semibold text-gray-900 mb-6"
+                          class="text-xl lg:text-2xl font-display font-semibold mb-6"
                         >
                           Our care home could be a good fit for your loved one.
                         </h3>
@@ -132,9 +131,9 @@
                         <ContactForm mini :message="contactMessage" />
 
                         <div class="flex gap-4 items-center my-6">
-                          <hr class="flex-1 border-gray-300" />
-                          <span class="text-gray-500">OR</span>
-                          <hr class="flex-1 border-gray-300" />
+                          <hr class="flex-1 border-gray-600" />
+                          <span class="text-gray-300">OR</span>
+                          <hr class="flex-1 border-gray-600" />
                         </div>
 
                         <div class="flex justify-center gap-4">
@@ -149,8 +148,8 @@
                           > -->
                           <UButton
                             icon="lucide:phone"
-                            color="primary"
-                            variant="solid"
+                            color="neutral"
+                            variant="outline"
                             size="xl"
                             block
                             href="tel:+12063132874"
@@ -160,7 +159,7 @@
                         </div>
                       </template>
                       <template v-else>
-                        <p class="text-lg text-gray-700">
+                        <p class="text-lg">
                           We might not be the best fit for you.
                         </p>
                       </template>

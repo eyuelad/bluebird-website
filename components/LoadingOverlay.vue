@@ -12,7 +12,7 @@
         :class="{ 'animate-pulse': showPageOverlay }"
       />
 
-      <div class="text-gray-600">Loading...</div>
+      <div class="text-gray-300">Loading...</div>
     </div>
   </div>
 </template>
@@ -54,8 +54,8 @@ const showPageOverlay = computed(() => {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    var(--color-sky-50),
-    var(--color-sky-100)
+    var(--color-gray-900),
+    var(--color-sky-950)
   );
   transition: all 0.4s ease-in;
   transform-origin: bottom;

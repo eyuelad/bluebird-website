@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-white" id="home">
+  <div class="home-hero-container relative z-10 bg-white">
     <div id="home-hero" class="home-hero py-20 bg-cover bg-center">
       <div
         class="absolute top-0 w-full h-full bg-gradient-to-b from-gray-900/25 to-gray-900/90"
@@ -82,9 +82,12 @@ useIntersectionObserver("#home-hero", {
 </script>
 
 <style>
+.home-hero-container {
+  clip-path: ellipse(150% 100% at 50% 0%);
+}
+
 .home-hero {
   background-image: url("/images/home/02-Green.webp");
-  clip-path: ellipse(150% 100% at 50% 0%);
 }
 
 /* fade-up class-based animation for hero title (no <transition>) */

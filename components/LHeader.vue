@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-slate-50 shadow-md fixed w-full z-10">
+  <header class="bg-gray-900 shadow-md fixed w-full z-20">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-20 items-center">
         <Logo />
@@ -13,12 +13,7 @@
             >{{ link.name }}</NuxtLink
           >
 
-          <UButton
-            icon="lucide:phone"
-            href="tel:+12063132874"
-            color="primary"
-            class="bg-primary-600 hover:bg-primary-700 text-white"
-          >
+          <UButton icon="lucide:phone" href="tel:+12063132874" color="primary">
             +1 (206) 313-2874
           </UButton>
         </nav>
@@ -37,6 +32,7 @@
             v-for="link in navLinks"
             :href="link.href"
             class="block px-3 py-2 hover:text-primary-500"
+            @click="isMenuOpen = false"
             >{{ link.name }}</NuxtLink
           >
         </div>

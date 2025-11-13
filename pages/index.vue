@@ -1,16 +1,14 @@
 <template>
-  <div class="text-slate-900">
-    <Hero />
+  <Hero2 />
 
-    <Questions />
+  <Questions />
 
-    <Testimonials />
-    <Pricing />
-    <!-- <About /> -->
-    <Gallery />
-    <Video />
-    <Contact />
-  </div>
+  <Testimonials />
+  <Pricing />
+  <!-- <About /> -->
+  <Gallery />
+  <Video />
+  <Contact />
 </template>
 
 <script setup lang="ts">
