@@ -1,13 +1,11 @@
 <template>
-  <section class="py-20 bg-gray-50" id="gallery">
+  <section class="py-20" id="gallery">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2
-          class="font-display text-4xl font-bold capitalize text-center text-gray-900 mb-4"
-        >
+        <h2 class="font-display text-4xl font-bold capitalize text-center mb-4">
           Photo Gallery
         </h2>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p class="text-gray-200 text-lg max-w-2xl mx-auto leading-relaxed">
           Take a virtual tour through our beautiful adult family home
         </p>
       </div>
@@ -25,7 +23,7 @@
 
     <div
       v-if="isOpen"
-      class="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+      class="fixed inset-0 bg-gray-900/95 flex items-center justify-center z-50"
       @click.self="closeModal"
     >
       <div class="relative rounded-lg w-full max-w-4xl p-10">
@@ -36,7 +34,7 @@
         </h3>
 
         <UButton
-          class="absolute top-0 right-0 z-50 text-white hover:text-gray-100"
+          class="absolute top-0 right-0 z-50"
           icon="lucide:x"
           variant="link"
           size="lg"

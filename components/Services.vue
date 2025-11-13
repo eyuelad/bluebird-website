@@ -1,11 +1,9 @@
 <template>
-  <section class="py-20 bg-primary-50" id="services">
+  <section class="py-20 bg-gray-800" id="services">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
-          Our Services
-        </h2>
-        <p class="text-gray-600 text-base max-w-2xl mx-auto leading-relaxed">
+        <h2 class="font-display text-4xl font-bold mb-4">Our Services</h2>
+        <p class="text-base max-w-2xl mx-auto leading-relaxed">
           We provide comprehensive care services tailored to meet the unique
           needs of each resident
         </p>
@@ -15,13 +13,13 @@
         <div
           v-for="(s, i) in services"
           :key="i"
-          class="bg-white hover:bg-slate-900 hover:text-white p-8 rounded-lg shadow-md hover:shadow-lg cursor-pointer hover:scale-105 transition-all duration-500"
+          class="border border-gray-700 hover:bg-gray-900 hover:text-white p-8 rounded-lg hover:shadow-lg transition-all duration-300"
         >
           <div class="mb-4">
-            <UIcon :name="s.icon" class="h-8 w-8 text-primary-800" />
+            <UIcon :name="s.icon" class="h-8 w-8 text-primary" />
           </div>
           <h3 class="text-xl font-display font-semibold mb-3">{{ s.title }}</h3>
-          <p class="text-gray-600 leading-relaxed">{{ s.description }}</p>
+          <p class="leading-relaxed">{{ s.description }}</p>
         </div>
       </div>
     </div>

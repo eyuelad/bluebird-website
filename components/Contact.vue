@@ -1,47 +1,47 @@
 <template>
-  <section class="py-20 bg-white" id="contact">
+  <section class="py-20" id="contact">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
-          Contact Us
-        </h2>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+        <h2 class="font-display text-4xl font-bold mb-4">Contact Us</h2>
+        <p class="text-lg max-w-2xl mx-auto leading-relaxed">
           We're here to answer your questions and help you make the best
           decision for your loved one
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-gray-50 p-8 rounded-lg">
+        <div class="bg-gray-800 p-8 rounded-lg">
           <h3 class="font-display text-2xl font-semibold mb-6">Get in Touch</h3>
           <div class="space-y-4">
             <div class="flex items-center">
               <UIcon
                 name="lucide:phone"
-                class="h-5 w-5 text-primary-600 mr-3"
-              /><a
-                href="tel:+12063132874"
-                class="text-gray-600 hover:text-primary-600"
+                class="h-5 w-5 text-primary-600 dark:text-primary-500 mr-3"
+              /><a href="tel:+12063132874" class="hover:text-primary-300"
                 >+1 (206) 313-2874</a
               >
             </div>
             <div class="flex items-center">
               <UIcon
                 name="lucide:mail"
-                class="h-5 w-5 text-primary-600 mr-3"
-              /><span class="text-gray-600">BlueBirdmcafh@gmail.com</span>
+                class="h-5 w-5 text-primary-600 dark:text-primary-500 mr-3"
+              /><a
+                href="mailto:blueBirdmcafh@gmail.com"
+                class="hover:text-primary-300"
+                >blueBirdmcafh@gmail.com</a
+              >
             </div>
             <div class="flex items-center">
               <UIcon
                 name="lucide:map-pin"
-                class="h-5 w-5 text-primary-600 mr-3"
-              /><span class="text-gray-600">Mill Creek, WA</span>
+                class="h-5 w-5 text-primary-600 dark:text-primary-500 mr-3"
+              /><span class="">Mill Creek, WA</span>
             </div>
             <div class="flex items-center">
               <UIcon
                 name="lucide:clock"
-                class="h-5 w-5 text-primary-600 mr-3"
-              /><span class="text-gray-600">Available 24/7 for inquiries</span>
+                class="h-5 w-5 text-primary-600 dark:text-primary-500 mr-3"
+              /><span class="">Available 24/7 for inquiries</span>
             </div>
           </div>
 

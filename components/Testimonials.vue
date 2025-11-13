@@ -1,10 +1,10 @@
 <template>
-  <section class="testimonials py-20 pb-32 bg-white">
+  <section class="testimonials py-20 pb-32 bg-gray-800">
     <MediaMarquee class="mb-6" />
 
     <div class="container px-4 sm:px-6 lg:px-8">
       <h2
-        class="font-display text-4xl font-bold capitalize text-center text-gray-900 mb-12 lg:mb-16"
+        class="font-display text-4xl font-bold capitalize text-center mb-12 lg:mb-16"
       >
         Testimonials
       </h2>
@@ -18,7 +18,7 @@
         :ui="{ item: 'basis-4/5 md:basis-3/5 xl:basis-1/3' }"
       >
         <div
-          class="p-6 rounded-xl border border-gray-300 cursor-pointer bg-white hover:border-gray-900 hover:bg-sky-50 group transition-all duration-300"
+          class="p-6 rounded-xl border border-gray-600 cursor-pointer hover:border-gray-100 hover:bg-sky-950 group transition-all duration-300"
           @click="select(item)"
         >
           <div class="flex items-center mb-4">
@@ -28,13 +28,13 @@
               class="w-16 h-16 rounded-full object-cover mr-4 bg-sky-100 group-hover:bg-sky-200 duration-300"
             />
             <div>
-              <h3 class="text-lg sm:text-xl font-medium text-gray-900">
+              <h3 class="text-lg sm:text-xl font-medium text-gray-100">
                 {{ item.name }}
               </h3>
-              <p class="text-gray-600">{{ item.role }}</p>
+              <p class="text-gray-300">{{ item.role }}</p>
             </div>
           </div>
-          <p class="text-gray-700 italic max-xs:text-sm line-clamp-5">
+          <p class="text-gray-200 italic max-xs:text-sm line-clamp-5">
             {{ item.message.replace(/<[^>]*>/g, "") }}
           </p>
         </div>
@@ -44,10 +44,10 @@
 
   <div
     v-if="selected"
-    class="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4 sm:px-6 lg:px-8"
+    class="fixed inset-0 z-50 bg-white/50 flex items-center justify-center px-4 sm:px-6 lg:px-8"
     @click.self="selected = null"
   >
-    <div class="relative bg-gray-50 p-6 md:p-8 rounded-lg max-w-2xl w-full">
+    <div class="relative bg-gray-800 p-6 md:p-8 rounded-lg max-w-2xl w-full">
       <UButton
         class="absolute top-6 right-6 z-50"
         icon="lucide:x"
@@ -65,15 +65,15 @@
           class="w-16 h-16 rounded-full object-cover mr-4 bg-sky-100"
         />
         <div>
-          <h3 class="text-xl font-medium text-gray-900">
+          <h3 class="text-xl font-medium">
             {{ selected.name }}
           </h3>
-          <p class="text-gray-600">{{ selected.role }}</p>
+          <p class="text-gray-300">{{ selected.role }}</p>
         </div>
       </div>
       <div class="overflow-y-auto max-h-[50vh]">
         <p
-          class="italic text-gray-700 max-xs:text-sm"
+          class="italic text-gray-200 max-xs:text-sm"
           v-html="selected.message"
         ></p>
       </div>
