@@ -44,7 +44,7 @@ const year = new Date().getFullYear();
 const links = ref([
   { name: "Home", href: ROUTES.HOME },
   { name: "Services", href: ROUTES.SERVICES },
-  { name: "About", href: ROUTES.ABOUT },
-  { name: "Contact", href: "#contact" },
+  { name: "Pricing", href: ROUTES.PRICING },
+  { name: "Contact", href: ROUTES.CONTACT },
 ]);
 </script>

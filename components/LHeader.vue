@@ -2,7 +2,7 @@
   <header class="bg-gray-900 shadow-md fixed w-full z-20">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-20 items-center">
-        <Logo />
+        <NuxtLink to="/"><Logo /></NuxtLink>
 
         <nav class="hidden md:flex items-center gap-6">
           <NuxtLink

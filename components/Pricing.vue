@@ -1,32 +1,58 @@
 <template>
-  <section class="py-20 bg-primary-50" id="services">
+  <section class="py-20 bg-primary-50 text-gray-800" id="pricing">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-gray-900 mb-8">
+        <h2
+          class="font-display text-4xl font-bold text-gray-900 mb-12 md:mb-16"
+        >
           Paying For Care
         </h2>
-        <p class="text-gray-600 text-2xl max-w-2xl mx-auto leading-relaxed">
-          The basic boarding, meals, laundry and cost within the range of
-          $150-$180 per day. Other cares which are widely different for each
-          individual resident and are determined by a third-party assessment
-          will cost additional $100-$200 per day.
-        </p>
 
-        <p
-          class="text-gray-600 text-2xl max-w-2xl mx-auto leading-relaxed mt-4"
-        >
-          When resources are available a long-term care insurances, VA benefits,
-          private fund, liquidated assets, a reverse mortgage or other real
-          estate arrangements are commonly used.
-        </p>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-lg border border-gray-400">
+            <h3
+              class="font-display text-2xl font-semibold mb-4 text-primary-700"
+            >
+              Basic Care
+            </h3>
 
-        <p
-          class="text-gray-600 text-2xl max-w-2xl mx-auto leading-relaxed mt-4"
-        >
-          If and when private resources dry, our homes work with you to secure
-          State and Federal resources, mainly Medicaid on top of Medicare
-          benefits.
-        </p>
+            <div class="mb-2 text-lg">$150 - $180 per day</div>
+            <div class="">Includes room, meals, laundry</div>
+          </div>
+
+          <div class="p-8 rounded-lg border border-gray-400">
+            <h3
+              class="font-display text-2xl font-semibold mb-4 text-primary-700"
+            >
+              Extra Care
+            </h3>
+
+            <div class="mb-2 text-lg">$100 - $200 per day</div>
+            <div class="">decided by an outside assessment</div>
+          </div>
+
+          <div
+            class="md:col-span-2 p-8 rounded-lg border border-gray-400 text-left"
+          >
+            <div class="text-lg font-semibold mb-4">
+              Ways to pay may include:
+            </div>
+
+            <ul class="list-disc list-inside mb-6 mt-4 text-gray-600">
+              <li>Long-term care insurance</li>
+              <li>VA benefits</li>
+              <li>Personal savings</li>
+              <li>Selling assets</li>
+              <li>Reverse mortgage or other home/real estate options</li>
+            </ul>
+
+            <p class="text-gray-600">
+              If your personal money runs low, we will help you apply for
+              Medicaid and other State and Federal programs, in addition to
+              Medicare.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
