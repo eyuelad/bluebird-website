@@ -2,7 +2,9 @@
   <div class="py-32 lg:py-20 group overflow-x-clip">
     <div class="container px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-5">
+        <div
+          class="max-lg:order-2 lg:col-span-6 max-lg:flex flex-col items-center"
+        >
           <h2
             class="font-display text-4xl font-bold capitalize mb-8 md:max-lg:max-w-xl max-lg:text-center"
           >
@@ -20,7 +22,7 @@
             </UButton>
           </div>
         </div>
-        <div class="lg:col-span-7 flex items-center">
+        <div class="max-lg:order-1 relative lg:col-span-6 flex items-center">
           <NuxtImg
             src="/images/family/4.webp"
             alt="Elderly Care Home"
@@ -47,7 +49,7 @@
         <div class="relative w-full h-full bg-gray-900">
           <div class="h-full flex flex-col lg:flex-row items-stretch">
             <div
-              class="lg:w-5/12 min-h-1/2 lg:h-full lg:col-span-5 flex items-center"
+              class="lg:w-5/12 min-h-2/5 lg:h-full lg:col-span-5 flex items-center"
             >
               <NuxtImg
                 :src="images[currentIndex]"
@@ -56,9 +58,9 @@
               />
             </div>
             <div
-              class="relative lg:w-7/12 h-full flex items-center px-6 lg:px-12 py-12 text-center"
+              class="overflow-auto no-scrollbar relative lg:w-7/12 h-full flex-col items-center p-6 text-center"
             >
-              <div class="absolute left-3 top-6 flex">
+              <div class="sticky top-0 w-full flex items-center bg-gray-900">
                 <UButton
                   class=""
                   icon="lucide:chevron-left"
@@ -80,21 +82,21 @@
                   :disabled="finished"
                   @click="onNextQuestion"
                 />
+                <UButton
+                  class="ml-auto"
+                  icon="lucide:x"
+                  variant="link"
+                  size="xl"
+                  color="neutral"
+                  @click="closeModal"
+                  aria-label="Close"
+                />
               </div>
 
-              <UButton
-                class="absolute top-6 right-6 z-50"
-                icon="lucide:x"
-                variant="link"
-                size="xl"
-                color="neutral"
-                @click="closeModal"
-                aria-label="Close"
-              />
               <transition name="slide-fade" mode="out-in">
                 <div
                   :key="finished ? 'result' : currentIndex"
-                  class="max-w-2xl mx-auto"
+                  class="max-w-2xl mx-auto h-full flex items-center justify-center"
                 >
                   <div v-if="!finished">
                     <p class="text-sm text-gray-400 mb-4">
@@ -120,24 +122,23 @@
                   </div>
 
                   <div v-else>
-                    <div class="py-12">
-                      <template v-if="hasYes">
-                        <h3
-                          class="text-xl lg:text-2xl font-display font-semibold mb-6"
-                        >
-                          Our care home could be a good fit for your loved one.
-                        </h3>
+                    <template v-if="hasYes">
+                      <h3
+                        class="text-xl lg:text-2xl font-display font-semibold mb-6"
+                      >
+                        Our care home could be a good fit for your loved one.
+                      </h3>
 
-                        <ContactForm mini :message="contactMessage" />
+                      <ContactForm mini :message="contactMessage" />
 
-                        <div class="flex gap-4 items-center my-6">
-                          <hr class="flex-1 border-gray-600" />
-                          <span class="text-gray-300">OR</span>
-                          <hr class="flex-1 border-gray-600" />
-                        </div>
+                      <div class="flex gap-4 items-center my-6">
+                        <hr class="flex-1 border-gray-600" />
+                        <span class="text-gray-300">OR</span>
+                        <hr class="flex-1 border-gray-600" />
+                      </div>
 
-                        <div class="flex justify-center gap-4">
-                          <!-- <UButton
+                      <div class="flex justify-center gap-4">
+                        <!-- <UButton
                             icon="lucide:calendar"
                             color="primary"
                             variant="solid"
@@ -146,24 +147,23 @@
                             @click="onSchedule"
                             >Schedule a Tour</UButton
                           > -->
-                          <UButton
-                            icon="lucide:phone"
-                            color="neutral"
-                            variant="outline"
-                            size="xl"
-                            block
-                            href="tel:+12063132874"
-                          >
-                            Call +1 (206) 313-2874
-                          </UButton>
-                        </div>
-                      </template>
-                      <template v-else>
-                        <p class="text-lg">
-                          We might not be the best fit for you.
-                        </p>
-                      </template>
-                    </div>
+                        <UButton
+                          icon="lucide:phone"
+                          color="neutral"
+                          variant="outline"
+                          size="xl"
+                          block
+                          href="tel:+12063132874"
+                        >
+                          Call +1 (206) 313-2874
+                        </UButton>
+                      </div>
+                    </template>
+                    <template v-else>
+                      <p class="text-lg">
+                        We might not be the best fit for you.
+                      </p>
+                    </template>
                   </div>
                 </div>
               </transition>
