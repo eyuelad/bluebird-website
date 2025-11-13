@@ -23,6 +23,32 @@
                 <div class="text-primary-400">Elderly Care</div>
               </div>
             </h1>
+
+            <div
+              :class="[
+                'mb-12 sm:flex space-y-4 sm:space-y-0 sm:space-x-4 opacity-0 !delay-700',
+                showTitle ? 'fade-up-active' : 'fade-up-hidden',
+              ]"
+            >
+              <UButton
+                icon="lucide:phone"
+                href="tel:+12063132874"
+                color="primary"
+                size="xl"
+              >
+                Call +1 (206) 313-2874
+              </UButton>
+
+              <UButton
+                icon="lucide:calendar"
+                to="#contact"
+                variant="outline"
+                size="xl"
+                class="border border-white text-white"
+              >
+                Schedule a Tour
+              </UButton>
+            </div>
           </div>
 
           <div class="lg:col-span-4">
