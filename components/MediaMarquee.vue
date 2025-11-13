@@ -34,23 +34,23 @@ const items = [
   { type: "image", src: "/images/family/1.webp" },
   {
     type: "video",
-    src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
+    src: "/videos/1.mp4",
   },
   { type: "image", src: "/images/family/4.webp" },
   { type: "image", src: "/images/home/12.webp" },
   {
     type: "video",
-    src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    src: "/videos/2.mp4",
   },
   { type: "image", src: "/images/family/3.webp" },
   {
     type: "video",
-    src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
+    src: "/videos/3.mp4",
   },
   { type: "image", src: "/images/home/27.webp" },
   {
     type: "video",
-    src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
+    src: "/videos/4.mp4",
   },
   { type: "image", src: "/images/family/10.webp" },
 ];
@@ -70,6 +70,11 @@ const doubledItems = computed(() => [...items, ...items]);
   gap: 1.5rem;
   width: 200%; /* duplicated */
   animation: marquee 28s linear infinite;
+}
+@media (max-width: 600px) {
+  .marquee-track {
+    animation-duration: 8s;
+  }
 }
 .marquee-item img,
 .marquee-item video {
