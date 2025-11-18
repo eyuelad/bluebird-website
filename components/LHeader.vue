@@ -49,8 +49,9 @@ const isMenuOpen = ref(false);
 
 const navLinks = ref([
   { name: "Home", href: ROUTES.HOME },
-  { name: "Services", href: ROUTES.SERVICES },
   { name: "About", href: ROUTES.ABOUT },
+  { name: "Services", href: ROUTES.SERVICES },
+  { name: "Pricing", href: ROUTES.PRICING },
   { name: "Gallery", href: ROUTES.GALLERY },
   { name: "Contact", href: ROUTES.CONTACT },
 ]);

@@ -1,8 +1,8 @@
 <template>
-  <section class="py-20 bg-white" id="about">
+  <section class="py-20 bg-gray-50" id="about">
     <div class="container px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div class="max-lg:order-2 md:col-span-5">
           <h2 class="font-display text-4xl font-bold text-gray-900 mb-6">
             About BlueBird Millcreek
           </h2>
@@ -28,29 +28,16 @@
           </div>
         </div>
 
-        <div>
-          <div class="rounded-xl overflow-hidden">
-            <div class="flex gap-4 overflow-x-auto p-4">
-              <NuxtImg
-                v-for="(img, idx) in images"
-                :key="idx"
-                :src="img"
-                class="w-[300px] h-[200px] object-cover rounded-xl"
-              />
-            </div>
-          </div>
+        <div class="max-sm:hidden"></div>
+
+        <div class="max-lg:order-1 relative lg:col-span-6 flex items-center">
+          <NuxtImg
+            src="/images/family/3.webp"
+            alt="Elderly Care Home"
+            class="rounded-lg shadow-lg aspect-square object-cover"
+          />
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-const images = [
-  "/images/family/1.webp",
-  "/images/family/2.webp",
-  "/images/family/3.webp",
-  "/images/family/4.webp",
-  "/images/family/6.webp",
-];
-</script>
