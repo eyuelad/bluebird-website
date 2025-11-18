@@ -88,6 +88,9 @@ const items = ref([
       "/images/home/02-Green.webp",
       "/images/home/03-green.webp",
       "/images/home/04.webp",
+      "/images/home-2-1.jpg",
+      "/images/home-2-2.jpg",
+      "/images/home-2-3.jpg",
     ],
   },
   {
@@ -169,8 +172,12 @@ const items = ref([
   },
   {
     title: "Garden View",
-    cover: "/images/home/27.webp",
+    cover: "/images/home-2-8.jpg",
     images: [
+      "/images/home-2-5.jpg",
+      "/images/home-2-6.jpg",
+      "/images/home-2-7.jpg",
+      "/images/home-2-9.jpg",
       "/images/home/27.webp",
       "/images/home/28.webp",
       "/images/home/29.webp",
