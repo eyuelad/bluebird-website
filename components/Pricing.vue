@@ -13,7 +13,7 @@
             <h3
               class="font-display text-2xl font-semibold mb-4 text-primary-700"
             >
-              Basic Care
+              Base Rate
             </h3>
 
             <div class="mb-2 text-lg">$150 - $180 per day</div>
@@ -24,7 +24,7 @@
             <h3
               class="font-display text-2xl font-semibold mb-4 text-primary-700"
             >
-              Extra Care
+              Additional Care Rate
             </h3>
 
             <div class="mb-2 text-lg">$100 - $200 per day</div>
@@ -35,22 +35,16 @@
             class="md:col-span-2 p-8 rounded-lg border border-gray-400 text-left"
           >
             <div class="text-lg font-semibold mb-4">
-              Ways to pay may include:
+              Common ways to cover long term care cost
             </div>
 
             <ul class="list-disc list-inside mb-6 mt-4 text-gray-600">
               <li>Long-term care insurance</li>
               <li>VA benefits</li>
-              <li>Personal savings</li>
-              <li>Selling assets</li>
-              <li>Reverse mortgage or other home/real estate options</li>
+              <li>Personal funds</li>
+              <li>Liquidate assets</li>
+              <li>Reverse mortgage or other home/real estate arrangements</li>
             </ul>
-
-            <p class="text-gray-600">
-              If your personal money runs low, we will help you apply for
-              Medicaid and other State and Federal programs, in addition to
-              Medicare.
-            </p>
           </div>
         </div>
       </div>

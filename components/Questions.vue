@@ -24,9 +24,9 @@
         </div>
         <div class="max-lg:order-1 relative lg:col-span-6 flex items-center">
           <NuxtImg
-            src="/images/family/4.webp"
+            src="/images/home-2-1.jpg"
             alt="Elderly Care Home"
-            class="rounded-lg shadow-lg aspect-[2] object-cover"
+            class="rounded-lg shadow-lg aspect-[1.8] object-cover"
           />
         </div>
       </div>

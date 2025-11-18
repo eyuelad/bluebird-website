@@ -9,6 +9,7 @@
                 v-if="item.type === 'image'"
                 :src="item.src"
                 alt="marquee image"
+                class="bg-gray-700 rounded-md"
                 :class="{ 'aspect-square': idx % 2 == 0 }"
               />
               <video
@@ -18,6 +19,7 @@
                 autoplay
                 loop
                 playsinline
+                class="bg-gray-700 rounded-md"
               ></video>
             </div>
           </template>
@@ -82,7 +84,6 @@ const doubledItems = computed(() => [...items, ...items]);
   width: auto;
   max-width: unset;
   display: block;
-  border-radius: 8px;
   object-fit: cover;
 }
 .marquee-item video {
