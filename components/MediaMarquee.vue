@@ -33,13 +33,18 @@
 import { computed } from "vue";
 
 const items = [
-  { type: "image", src: "/images/family/1.webp" },
+  { type: "image", src: "/images/family/18.jpg" },
+  {
+    type: "video",
+    src: "/videos/8.mp4",
+  },
+  { type: "image", src: "/images/family/17.jpg" },
   {
     type: "video",
     src: "/videos/1.mp4",
   },
   { type: "image", src: "/images/family/4.webp" },
-  { type: "image", src: "/images/home/12.webp" },
+  { type: "image", src: "/images/family/15.jpg" },
   {
     type: "video",
     src: "/videos/2.mp4",
@@ -49,7 +54,7 @@ const items = [
     type: "video",
     src: "/videos/3.mp4",
   },
-  { type: "image", src: "/images/home/27.webp" },
+  { type: "image", src: "/images/family/16.jpg" },
   {
     type: "video",
     src: "/videos/4.mp4",
