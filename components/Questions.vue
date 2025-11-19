@@ -50,6 +50,7 @@
           <div class="h-full flex flex-col lg:flex-row items-stretch">
             <div
               class="lg:w-5/12 min-h-2/5 lg:h-full lg:col-span-5 flex items-center"
+              :class="{ '!min-h-1/5': finished && hasYes }"
             >
               <NuxtImg
                 :src="images[currentIndex]"
