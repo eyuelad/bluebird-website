@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-const images = Array.from({ length: 30 }).map((_, i) => {
+const images = Array.from({ length: 23 }).map((_, i) => {
   return {
     id: i,
     // Using picsum with seed for consistent images
