@@ -9,7 +9,9 @@
       </p>
     </div>
 
-    <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+    <div
+      class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4"
+    >
       <div
         v-for="image in images"
         :key="image.id"
@@ -18,7 +20,7 @@
         <NuxtImg
           :src="image.src"
           :alt="image.alt"
-          class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+          class="w-full h-auto object-cover bg-gray-700 transform hover:scale-105 transition-transform duration-500"
           loading="lazy"
           placeholder
         />
@@ -28,14 +30,11 @@
 </template>
 
 <script setup lang="ts">
-// Generate 30 deterministic placeholder images with varying heights
 const images = Array.from({ length: 30 }).map((_, i) => {
-  // Deterministic height variation between 300px and 600px
-  const height = 300 + ((i * 137) % 300);
   return {
     id: i,
     // Using picsum with seed for consistent images
-    src: `https://picsum.photos/seed/bluebird${i}/600/${height}`,
+    src: `/images/home-life/${i + 1}.jpg`,
     alt: `Home Life Moment ${i + 1}`,
   };
 });

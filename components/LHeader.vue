@@ -51,8 +51,9 @@ const navLinks = ref([
   { name: "Home", href: ROUTES.HOME },
   { name: "About", href: ROUTES.ABOUT },
   { name: "Services", href: ROUTES.SERVICES },
+  { name: "Home Life", href: ROUTES.HOME_LIFE },
   { name: "Pricing", href: ROUTES.PRICING },
-  { name: "Gallery", href: ROUTES.GALLERY },
-  { name: "Contact", href: ROUTES.CONTACT },
+  // { name: "Gallery", href: ROUTES.GALLERY },
+  // { name: "Contact", href: ROUTES.CONTACT },
 ]);
 </script>
