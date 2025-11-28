@@ -45,7 +45,7 @@
           <NuxtImg
             src="/images/about.webp"
             alt="Elderly Care Home"
-            class="rounded-full mb-4 shadow-lg bg-gray-300 aspect-square object-cover"
+            class="w-full rounded-full mb-4 shadow-lg bg-gray-300 aspect-square object-cover"
           />
 
           <div

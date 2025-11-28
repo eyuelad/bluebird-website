@@ -10,7 +10,7 @@
     </div>
 
     <div
-      class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4"
+      class="columns-1 sm:columns-2 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4"
     >
       <div
         v-for="image in images"
@@ -20,8 +20,7 @@
         <NuxtImg
           :src="image.src"
           :alt="image.alt"
-          class="w-full h-auto object-cover bg-gray-700 transform hover:scale-105 transition-transform duration-500"
-          loading="lazy"
+          class="w-full min-h-24 h-auto object-cover bg-gray-700 transform hover:scale-105 transition-transform duration-500"
           placeholder
         />
       </div>
@@ -33,7 +32,6 @@
 const images = Array.from({ length: 23 }).map((_, i) => {
   return {
     id: i,
-    // Using picsum with seed for consistent images
     src: `/images/home-life/${i + 1}.jpg`,
     alt: `Home Life Moment ${i + 1}`,
   };
