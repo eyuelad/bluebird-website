@@ -199,13 +199,13 @@ const defaultQuestions =
   props.questions && props.questions.length
     ? props.questions
     : [
-        "Has the resident experienced numerous falls?",
-        "Does the resident have unattended incontinence?",
-        "Does the resident suffer from disabling memory loss?",
-        "Is the resident unable to care for themselves?",
-        "Does the resident require ongoing nurse intervention?",
+        "Has your loved one experienced numerous falls?",
+        "Does your loved one have unattended incontinence?",
+        "Does your loved one suffer from disabling memory loss?",
+        "Is your loved one unable to care for themselves?",
+        "Does your loved one require ongoing nurse intervention?",
         "Is in-home care too expensive for the family?",
-        "Is the resident experiencing severe isolation?",
+        "Is your loved one experiencing severe isolation?",
         "Is there a risk to the caregiving spouse?",
       ];
 
