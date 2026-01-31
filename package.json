@@ -16,7 +16,7 @@
     "@nuxtjs/google-fonts": "^3.1.0",
     "@unhead/vue": "^2.0.3",
     "autoprefixer": "^10.4.16",
-    "nuxt": "^3.8.2",
+    "nuxt": "^3.18.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^4.1.11",
     "vue": "^3.3.8",

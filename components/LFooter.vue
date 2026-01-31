@@ -45,6 +45,7 @@ const links = ref([
   { name: "Home", href: ROUTES.HOME },
   { name: "Services", href: ROUTES.SERVICES },
   { name: "Pricing", href: ROUTES.PRICING },
+  { name: "Privacy Policy", href: ROUTES.PRIVACY_POLICY },
   { name: "Contact", href: ROUTES.CONTACT },
 ]);
 </script>
