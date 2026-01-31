@@ -142,8 +142,8 @@ const submitForm = async () => {
 
   try {
     const result = await emailjs.send(
-      "bluebird_service_t40pdmg",
-      "contact_template_8yur35k",
+      "bluebird_service_482v7ng",
+      "template_ow2hfgy",
       payload
     );
     console.log("SUCCESS!", result.text);
