@@ -94,7 +94,7 @@ const props = defineProps({
   },
 });
 
-emailjs.init({ publicKey: "user_QfTgWJVBKORGg4BAkRdpV" });
+emailjs.init({ publicKey: "wUGNpRYWAzq-LAwcx" });
 
 const contactForm = ref(null);
 const form = reactive({
